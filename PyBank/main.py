@@ -21,6 +21,11 @@ with open(pybank_csv, newline="") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     csv_header = next(csv_reader)
 
+    #Read through each row of data
+    for row in csv_reader:
+        #Count months
+        count = count + 1
 
-
-        
+        #Calculate net profit loss for period
+        current_profit_loss = int(row[1])
+        net_profit_loss = net_profit_loss + current_profit_loss

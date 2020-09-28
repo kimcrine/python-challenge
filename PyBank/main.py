@@ -16,6 +16,11 @@ initial_profit_loss = 0
 current_profit_loss = 0
 delta_profit_loss = 0
 
+#Open and read CSV
+with open(pybank_csv, newline="") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=",")
+    csv_header = next(csv_reader)
+
 
 
         

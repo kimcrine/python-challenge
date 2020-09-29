@@ -16,7 +16,7 @@ with open(pypoll_csv, newline="") as csv_file:
     csv_header = next(csv_file)
 
      #Read through each row of data
-     for row in csv_reader:
+    for row in csv_reader:
          candidates.append(row[2])
 
     #Count votes per candidate and add to the list
@@ -26,6 +26,29 @@ with open(pypoll_csv, newline="") as csv_file:
         name.append(row[0])
         votes.append(row[1])
 
-    #Zip lists together to assign votes per candidate
+    #Zip lists together
     candidate_zip = zip(name,votes)
     candidate_list = list(candidate_zip)
+
+    #Winner of election based on popular vote
+    winner = max(votes)
+
+    for row in candidate_list:
+        if row[1] == winner:
+            winner_name = row[0]
+
+#Total number of votes cast
+total_votes = len(candidates)
+
+#Caculate votes per candidate and percentages
+correy_total = candidates.count('Correy')
+correy_percent = int(correy_total) / int(total_votes)
+
+o_tooley_total = candidates.count("O'Tooley")
+o_tooley_percent = o_tooley_total / total_votes
+
+li_total = candidates.count('Li')
+li_percent = li_total / total_votes
+
+khan_total = candidates.count('Khan')
+khan_percent = khan_total / total_votes

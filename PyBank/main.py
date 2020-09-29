@@ -26,7 +26,7 @@ with open(pybank_csv, newline="") as csv_file:
         #Count months
         count = count + 1
 
-        #Calculate net profit loss for period
+        #Calculate net profit/loss for period
         current_profit_loss = int(row[1])
         net_profit_loss = net_profit_loss + current_profit_loss
 
@@ -38,16 +38,19 @@ with open(pybank_csv, newline="") as csv_file:
 
         else:
 
-            #Calculate profit loss change
+            #Calculate profit/loss change
             delta_profit_loss = current_profit_loss - initial_profit_loss
 
             #Add each month to the months list
             months.append(row[0])
 
-            #Add each profit loss change calculation to profit loss changes list
+            #Add each profit loss change calculation to profit/loss changes list
             profit_loss_changes.append(delta_profit_loss)
 
             #Set last month equal to current month
             initial_profit_loss = current_profit_loss
 
+#Sum and average profit/loss changes
+profit_loss_sum = sum(profit_loss_changes)
+profit_loss_avg = profit_loss_sum/(count - 1)
 

@@ -52,7 +52,7 @@ with open(pybank_csv, newline="") as csv_file:
 
 #Sum and average profit/loss changes
 profit_loss_sum = sum(profit_loss_changes)
-profit_loss_avg = profit_loss_sum/(count - 1)
+profit_loss_avg = round(profit_loss_sum/(count - 1),2)
 
 #Greatest increase/decrease (amount)
 greatest_profit_incr = max(profit_loss_changes)
@@ -74,3 +74,14 @@ print(f"Total: ${net_profit_loss}")
 print(f"Average Change: ${profit_loss_avg}")
 print(f"Greatest Increase in Profits: {best_month} (${greatest_profit_incr})")
 print(f"Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr}")
+
+#Export text file 
+pybank_output = os.path.join("Output", "pybank.txt")
+with open(pybank_output, "w") as txt:
+    txt.write("Financial Analysis\n")
+    txt.write("----------------------------\n")
+    txt.write("Total Months: {count}\n")
+    txt.write("Total: ${net_profit_loss}\n")
+    txt.write("Average Change: ${profit_loss_avg}\n")
+    txt.write("Greatest Increase in Profits: {best_month} (${greatest_profit_incr})\n")
+    txt.write("Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr}\n")

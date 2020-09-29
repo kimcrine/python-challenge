@@ -54,3 +54,11 @@ with open(pybank_csv, newline="") as csv_file:
 profit_loss_sum = sum(profit_loss_changes)
 profit_loss_avg = profit_loss_sum/(count - 1)
 
+#Greatest increase/decrease (amount)
+greatest_profit_incr = max(profit_loss_changes)
+greatest_profit_decr = min(profit_loss_changes)
+
+#Greatest increase/decrease (date)
+date_incr = profit_loss_changes.index(greatest_profit_incr)
+date_decr = profit_loss_changes.index(greatest_profit_decr)
+

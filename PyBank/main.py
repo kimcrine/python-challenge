@@ -62,3 +62,15 @@ greatest_profit_decr = min(profit_loss_changes)
 date_incr = profit_loss_changes.index(greatest_profit_incr)
 date_decr = profit_loss_changes.index(greatest_profit_decr)
 
+#Identify best and worst months
+best_month = months[date_incr]
+worst_month = months[date_decr]
+
+#Print analysis
+print("Financial Analysis")
+print("----------------------------")
+print(f"Total Months: {count}")
+print(f"Total: ${net_profit_loss}")
+print(f"Average Change: ${profit_loss_avg}")
+print(f"Greatest Increase in Profits: {best_month} (${greatest_profit_incr})")
+print(f"Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr}")

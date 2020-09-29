@@ -7,7 +7,7 @@ pypoll_csv = os.path.join(".", "Resources", "election_data.csv")
 
 #Create lists to store data
 candidates = []
-votes_per_candidate = []
+votes = []
 name = []
 
 #Open and read CSV
@@ -20,4 +20,12 @@ with open(pypoll_csv, newline="") as csv_file:
          candidates.append(row[2])
 
     #Count votes per candidate and add to the list
-    candidate_count = [[x,candidates.count(x)] for x in set (candidates)]
+    candidate_count = [[x,candidates.count(x)] for x in set(candidates)]
+
+    for row in candidate_count:
+        name.append(row[0])
+        votes.append(row[1])
+
+    #Zip lists together to assign votes per candidate
+    candidate_zip = zip(name,votes)
+    candidate_list = list(candidate_zip)

@@ -69,19 +69,19 @@ worst_month = months[date_decr]
 #Print analysis
 print("Financial Analysis")
 print("----------------------------")
-print(f"Total Months: {count}")
+print(f"Total Months: {count}") 
 print(f"Total: ${net_profit_loss}")
 print(f"Average Change: ${profit_loss_avg}")
 print(f"Greatest Increase in Profits: {best_month} (${greatest_profit_incr})")
-print(f"Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr}")
+print(f"Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr})")
 
 #Export text file 
-pybank_output = os.path.join("Output", "pybank.txt")
+pybank_output = os.path.join(".", "Analysis", "analysis.txt")
 with open(pybank_output, "w") as txt:
     txt.write("Financial Analysis\n")
     txt.write("----------------------------\n")
-    txt.write("Total Months: {count}\n")
-    txt.write("Total: ${net_profit_loss}\n")
-    txt.write("Average Change: ${profit_loss_avg}\n")
-    txt.write("Greatest Increase in Profits: {best_month} (${greatest_profit_incr})\n")
-    txt.write("Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr}\n")
+    txt.write(f"Total Months: {count}\n")
+    txt.write(f"Total: ${net_profit_loss}\n")
+    txt.write(f"Average Change: ${profit_loss_avg}\n")
+    txt.write(f"Greatest Increase in Profits: {best_month} (${greatest_profit_incr})\n")
+    txt.write(f"Greatest Decrease in Profits: {worst_month} (${greatest_profit_decr})\n")
